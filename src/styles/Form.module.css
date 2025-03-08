@@ -1,0 +1,415 @@
+.formContainer {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  z-index: 10;
+}
+
+.formCard {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px var(--theme-shadow);
+  position: relative;
+  overflow: hidden;
+  animation: slideUp 0.6s ease-out;
+}
+
+.formTitle {
+  font-family: "Dancing Script", cursive;
+  font-size: 2rem;
+  color: var(--theme-heading-text);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.description {
+  text-align: center;
+  color: var(--theme-label-text);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.inputGroup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.inputLabel {
+  font-size: 1rem;
+  color: var(--theme-label-text);
+}
+
+.formContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 350px;
+  margin: 1.5rem auto 0;
+}
+
+.input {
+  width: 100%;
+  height: 48px;
+  padding: 0 1rem;
+  border: 2px solid var(--theme-border);
+  border-radius: 12px;
+  font-size: 1rem;
+  text-align: center;
+  transition: border-color 0.3s ease;
+  background: white;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--theme-primary);
+  box-shadow: 0 0 10px var(--theme-shadow);
+}
+
+.input.error {
+  border-color: #ff4444;
+}
+
+.errorMessage {
+  color: #ff4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  text-align: center;
+  animation: shake 0.5s ease;
+}
+
+.button {
+  width: 100%;
+  height: 48px;
+  background: linear-gradient(
+    45deg,
+    var(--theme-primary),
+    var(--theme-secondary)
+  );
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px var(--theme-shadow);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+@media (max-width: 480px) {
+  .formContainer {
+    padding: 1rem;
+  }
+
+  .radioGroup {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .input,
+  .button {
+    padding: 0.875rem;
+  }
+
+  .form {
+    max-width: 320px;
+  }
+}
+
+/* Recipient selector styles */
+.recipientSelector {
+  margin-bottom: 2rem;
+}
+
+.radioGroup {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.radioLabel {
+  position: relative;
+  cursor: pointer;
+}
+
+.radioInput {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radioButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border: 2px solid var(--theme-border);
+  border-radius: 12px;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.icon {
+  font-size: 1.2rem;
+}
+
+.label {
+  font-size: 0.9rem;
+  color: var(--theme-label-text);
+  transition: color 0.3s ease;
+}
+
+/* Selected state */
+.radioInput:checked + .radioButton {
+  background: linear-gradient(
+    135deg,
+    var(--theme-primary),
+    var(--theme-secondary)
+  );
+  border-color: var(--theme-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--theme-shadow);
+}
+
+.radioInput:checked + .radioButton .label {
+  color: white;
+  font-weight: 500;
+}
+
+/* Hover state */
+.radioButton:hover {
+  transform: translateY(-2px);
+  background: var(--theme-hover);
+  border-color: var(--theme-primary);
+}
+
+.radioButton:hover .label {
+  color: var(--theme-text);
+}
+
+/* Focus state for accessibility */
+.radioInput:focus + .radioButton {
+  box-shadow: 0 0 0 2px var(--theme-hover);
+}
+
+.sectionTitle {
+  font-size: 1rem;
+  color: var(--theme-heading-text);
+  margin-bottom: 0.8rem;
+  text-align: center;
+}
+
+/* Radio Group Styles - More Compact */
+.radioGroup {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  padding: 0.5rem;
+  margin: 0 auto;
+  max-width: 450px;
+}
+
+.radioLabel {
+  position: relative;
+  cursor: pointer;
+}
+
+.radioInput {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radioButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  background: white;
+  border: 1px solid var(--theme-border);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.radioInput:checked + .radioButton {
+  background: linear-gradient(
+    135deg,
+    var(--theme-primary),
+    var(--theme-secondary)
+  );
+  border-color: var(--theme-secondary);
+  box-shadow: 0 4px 12px var(--theme-shadow);
+  transform: translateY(-2px);
+  color: white;
+}
+
+.radioInput:focus + .radioButton {
+  box-shadow: 0 0 0 2px var(--theme-hover);
+}
+
+.icon {
+  font-size: 1.2rem;
+  margin-right: 0.3rem;
+}
+
+.label {
+  font-size: 0.8rem;
+  color: var(--theme-label-text);
+}
+
+.radioInput:checked + .radioButton .label {
+  color: white;
+  font-weight: 500;
+}
+
+/* Add hover animation */
+.radioButton:hover {
+  background: var(--theme-hover);
+  transform: translateY(-2px);
+}
+
+/* Add ripple effect on click */
+.radioButton::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.radioInput:active + .radioButton::after {
+  background: var(--theme-hover);
+}
+
+.themeRadioGroup {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding: 0.5rem;
+}
+
+.themeRadioLabel {
+  position: relative;
+  cursor: pointer;
+  display: block;
+}
+
+.themeRadioInput {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.themeRadioButton {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.themePreview {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--theme-preview-bg);
+  border: 2px solid var(--theme-preview-color);
+  flex-shrink: 0;
+}
+
+.themeLabel {
+  font-size: 0.9rem;
+  color: var(--theme-label-text);
+}
+
+.themeRadioInput:checked + .themeRadioButton {
+  border-color: var(--theme-preview-color);
+  background: var(--theme-preview-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+.themeRadioButton:hover {
+  transform: translateY(-2px);
+}
+
+.themeRadioButton:hover .themeLabel {
+  color: var(--theme-text);
+}
+
+/* Make radio buttons and inputs more visible on dark themes */
+.radioInput:checked + .radioButton {
+  color: white;
+}
+
+.themeRadioInput:checked + .themeRadioButton {
+  color: white;
+}

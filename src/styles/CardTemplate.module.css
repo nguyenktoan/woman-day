@@ -1,0 +1,187 @@
+.templateCard {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9; /* Changed from 1.4142 to standard HD ratio */
+  border-radius: var(--border-radius);
+  padding: var(--padding);
+  cursor: pointer;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.6s ease;
+  border: 2px solid transparent;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.templateCard.selected {
+  border-color: var(--theme-primary);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.templateCard:hover {
+  transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1),
+    0 0 20px rgba(var(--theme-primary-rgb), 0.2);
+}
+
+.templateCard:hover .backgroundImage {
+  transform: scale(1.05);
+}
+
+.templatePreview {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+.templateTitle {
+  font-family: var(--title-font);
+  font-size: 2rem;
+  color: var(--theme-text);
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.templateMessage {
+  font-family: var(--message-font);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--theme-secondary);
+  max-width: 80%;
+  margin: 0;
+}
+
+.decorativeCorners span {
+  position: absolute;
+  font-size: 24px;
+}
+
+.corner-0 {
+  top: 16px;
+  left: 16px;
+}
+.corner-1 {
+  top: 16px;
+  right: 16px;
+}
+.corner-2 {
+  bottom: 16px;
+  left: 16px;
+}
+.corner-3 {
+  bottom: 16px;
+  right: 16px;
+}
+
+.divider {
+  margin: 1em 0;
+  color: var(--theme-primary);
+  opacity: 0.6;
+}
+
+.templateInfo {
+  position: absolute;
+  bottom: var(--padding);
+  left: var(--padding);
+  right: var(--padding);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--theme-text);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+}
+
+.templateName {
+  font-family: var(--title-font);
+  font-size: 1.5rem;
+  color: var(--theme-text);
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.templateDescription {
+  font-family: var(--content-font);
+  font-size: 0.875rem;
+  color: var(--theme-secondary);
+  max-width: 80%;
+  margin: 0;
+}
+
+.templateFont {
+  font-weight: 500;
+}
+
+.badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  background: var(--theme-primary);
+  color: white;
+  opacity: 0.9;
+}
+
+.templateLayout {
+  background: var(--theme-primary);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+.templateRadio {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Add new styles for image container */
+.imageContainer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  transform: translateZ(-10px);
+}
+
+.backgroundImage {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+.patternOverlay {
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cardContent {
+  position: relative;
+  transform: translateZ(20px);
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}

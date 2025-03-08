@@ -1,0 +1,92 @@
+.selectorContainer {
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+}
+
+.selectorTitle {
+  font-family: "Dancing Script", cursive;
+  font-size: 2rem;
+  text-align: center;
+  color: var(--theme-text);
+  margin-bottom: 2rem;
+}
+
+.templatesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.templateOption {
+  position: relative;
+  cursor: pointer;
+}
+
+.templateRadio {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.templateCard {
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: var(--theme-background);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.templateRadio:checked + .templateCard {
+  border-color: var(--theme-primary);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.templatePreview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.templateIcon {
+  font-size: 2rem;
+}
+
+.templateName {
+  font-size: 1.25rem;
+  color: var(--theme-text);
+  margin: 0;
+}
+
+.templateDecorations {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.templateInfo {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: var(--theme-secondary);
+}
+
+.templateFont {
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .templatesGrid {
+    grid-template-columns: 1fr;
+  }
+}

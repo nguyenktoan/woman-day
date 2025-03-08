@@ -1,0 +1,18 @@
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.card.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.cardTitle {
+  color: #f06595;
+}

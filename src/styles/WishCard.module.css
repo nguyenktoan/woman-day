@@ -1,0 +1,344 @@
+.cardWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  background: var(--theme-background);
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.cardHeader {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-family: "Dancing Script", cursive;
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  color: var(--theme-text);
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 4px var(--theme-shadow);
+}
+
+.date {
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-weight: 700;
+  color: var(--theme-secondary);
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  z-index: 2;
+}
+
+.recipient {
+  font-size: clamp(1.5rem, 3.5vw, 1.8rem);
+  color: var(--theme-text);
+  font-family: "Dancing Script", cursive;
+  text-shadow: 2px 2px 4px var(--theme-shadow);
+  text-align: center;
+}
+
+.message {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  line-height: 1.8;
+  color: var(--theme-secondary);
+  white-space: pre-line;
+  margin: 0 auto;
+  max-width: 90%;
+  text-align: center;
+}
+
+.cardFooter {
+  text-align: right;
+  padding-top: 1rem;
+  color: var(--theme-text);
+  opacity: 0.8;
+}
+
+.decorations {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.imageContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  margin-bottom: 1.5rem;
+}
+
+.backgroundImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.patternOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-repeat: repeat;
+  mix-blend-mode: soft-light;
+}
+
+.cardContent {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.loadingDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--theme-secondary);
+  animation: bounce 0.5s ease-in-out infinite;
+}
+
+.loadingDot:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.loadingDot:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cardWrapper {
+    padding: 1rem;
+  }
+
+  .card {
+    aspect-ratio: 3/4;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 1.5rem;
+  }
+
+  .content {
+    gap: 1.5rem;
+  }
+}
+
+/* Theme-specific styles */
+.rose .title {
+  color: #ff1493;
+}
+.sage .title {
+  color: #2e4a32;
+}
+.lavender .title {
+  color: #4a2d5f;
+}
+.peach .title {
+  color: #d45d3c;
+}
+.skyBlue .title {
+  color: #2c679d;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 1.5rem;
+  }
+
+  .content {
+    gap: 1.5rem;
+  }
+}
+
+/* Theme-specific styles */
+.rose .title {
+  color: #ff1493;
+}
+.sage .title {
+  color: #2e4a32;
+}
+.lavender .title {
+  color: #4a2d5f;
+}
+.peach .title {
+  color: #d45d3c;
+}
+.skyBlue .title {
+  color: #2c679d;
+}
+
+.backButton {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--theme-text);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 100;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 12px var(--theme-shadow);
+}
+
+.backButton:hover {
+  transform: translateX(-5px);
+  background: white;
+}
+
+/* Add color theme selection to WishForm */
+.themeSelector {
+  margin: 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.themeButton {
+  padding: 0.5rem 1rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.themeButton.active {
+  border-color: var(--theme-secondary);
+  transform: translateY(-2px);
+}
+
+.captureContainer {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+
+.decorativeBorder {
+  position: absolute;
+  inset: 1.5rem;
+  border: 2px solid var(--theme-primary);
+  border-radius: 16px;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+/* Color Themes */
+.sage {
+  --theme-primary: #7fa382;
+  --theme-secondary: #516c57;
+  --theme-background: linear-gradient(135deg, #e8efe6 0%, #d1e2cc 100%);
+  --theme-page-background: linear-gradient(135deg, #f0f5ee 0%, #e8efe6 100%);
+  --theme-text: #2e4a32;
+  --theme-border: #7fa382;
+  --theme-shadow: rgba(127, 163, 130, 0.2);
+  --theme-hover: rgba(127, 163, 130, 0.1);
+}
+
+.lavender {
+  --theme-primary: #9d7bb0;
+  --theme-secondary: #6a4d7c;
+  --theme-background: linear-gradient(135deg, #f2e6ff 0%, #e6d9f2 100%);
+  --theme-page-background: linear-gradient(135deg, #f7f0ff 0%, #f2e6ff 100%);
+  --theme-text: #4a2d5f;
+  --theme-border: #9d7bb0;
+  --theme-shadow: rgba(157, 123, 176, 0.2);
+  --theme-hover: rgba(157, 123, 176, 0.1);
+}
+
+.peach {
+  --theme-primary: #ff9a7b;
+  --theme-secondary: #e67d5f;
+  --theme-background: linear-gradient(135deg, #ffe8e0 0%, #ffd6cc 100%);
+  --theme-page-background: linear-gradient(135deg, #fff0eb 0%, #ffe8e0 100%);
+  --theme-text: #d45d3c;
+  --theme-border: #ff9a7b;
+  --theme-shadow: rgba(255, 154, 123, 0.2);
+  --theme-hover: rgba(255, 154, 123, 0.1);
+}
+
+.skyBlue {
+  --theme-primary: #7bb3d9;
+  --theme-secondary: #4d8ab8;
+  --theme-background: linear-gradient(135deg, #e6f3ff 0%, #cce6ff 100%);
+  --theme-page-background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%);
+  --theme-text: #2c679d;
+  --theme-border: #7bb3d9;
+  --theme-shadow: rgba(123, 179, 217, 0.2);
+  --theme-hover: rgba(123, 179, 217, 0.1);
+}
+
+.rose {
+  --theme-primary: #ff8fa3;
+  --theme-secondary: #ff6b84;
+  --theme-background: linear-gradient(135deg, #fff0f3 0%, #ffe6eb 100%);
+  --theme-page-background: linear-gradient(135deg, #fff5f7 0%, #fff0f3 100%);
+  --theme-text: #ff1493;
+  --theme-border: #ff8fa3;
+  --theme-shadow: rgba(255, 143, 163, 0.2);
+  --theme-hover: rgba(255, 143, 163, 0.1);
+}

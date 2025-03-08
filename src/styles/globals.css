@@ -1,0 +1,29 @@
+:root {
+  /* Default theme - Rose Pink */
+  --theme-primary: #ff8fa3;
+  --theme-secondary: #ff6b84;
+  --theme-background: linear-gradient(135deg, #fff0f3 0%, #ffe6eb 100%);
+  --theme-page-background: linear-gradient(135deg, #fff5f7 0%, #fff0f3 100%);
+  --theme-text: #ff1493;
+  --theme-border: #ffc0cb;
+  --theme-shadow: rgba(255, 105, 180, 0.2);
+  --theme-hover: rgba(255, 105, 180, 0.1);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Montserrat", sans-serif;
+  background: var(--theme-page-background);
+  color: var(--theme-text);
+  transition: all 0.5s ease;
+}
+
+button {
+  background: var(--theme-primary);
+  color: white;
+}
+
+input:focus {
+  border-color: var(--theme-primary);
+}
